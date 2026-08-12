@@ -1,5 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 
+import { RevealObserver } from "./RevealObserver";
+
 const whatsappUrl =
   "https://wa.me/551532835300?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20MWTA%20e%20gostaria%20de%20solicitar%20uma%20avalia%C3%A7%C3%A3o.";
 
@@ -149,6 +151,7 @@ function ArrowIcon() {
 export default function Home() {
   return (
     <>
+      <RevealObserver />
       <a className="skip-link" href="#conteudo">
         Ir para o conteúdo
       </a>
@@ -179,7 +182,19 @@ export default function Home() {
 
       <main id="conteudo">
         <section className="hero" id="inicio" aria-labelledby="hero-title">
-          <div className="hero-image" aria-hidden="true" />
+          <video
+            className="hero-video"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            poster="/images/marca/fundo-videomonitoramento-capa.jpeg"
+            aria-hidden="true"
+            tabIndex={-1}
+          >
+            <source src="/media/video_hero.mp4" type="video/mp4" />
+          </video>
           <div className="hero-overlay" aria-hidden="true" />
           <div className="shell hero-content">
             <div className="hero-copy">
@@ -198,18 +213,11 @@ export default function Home() {
                 </a>
               </div>
             </div>
-            <aside className="hero-note" aria-label="Destaque de atendimento">
-              <span className="pulse" aria-hidden="true" />
-              <div>
-                <strong>Proteção sob medida</strong>
-                <p>Da avaliação ao suporte, uma equipe perto de você.</p>
-              </div>
-            </aside>
           </div>
         </section>
 
         <section className="trust-bar" aria-label="Diferenciais da MWTA">
-          <div className="shell trust-grid">
+          <div className="shell trust-grid stagger-grid" data-reveal>
             <div><strong>14</strong><span>anos de história</span></div>
             <div><strong>24h</strong><span>soluções monitoradas</span></div>
             <div><strong>360°</strong><span>proteção integrada</span></div>
@@ -218,7 +226,7 @@ export default function Home() {
         </section>
 
         <section className="section about" id="sobre">
-          <div className="shell about-grid">
+          <div className="shell about-grid" data-reveal>
             <div className="about-mark" aria-hidden="true">
               <span>14</span>
               <p>anos construindo confiança</p>
@@ -245,7 +253,7 @@ export default function Home() {
 
         <section className="section services" id="servicos">
           <div className="shell">
-            <div className="section-heading split-heading">
+            <div className="section-heading split-heading" data-reveal>
               <div>
                 <p className="eyebrow">Soluções completas</p>
                 <h2>Uma camada de proteção para cada necessidade.</h2>
@@ -255,7 +263,7 @@ export default function Home() {
                 para cuidar do seu espaço todos os dias.
               </p>
             </div>
-            <div className="services-grid">
+            <div className="services-grid stagger-grid" data-reveal>
               {services.map((service) => (
                 <article className="service-card" key={service.number}>
                   <span className="service-number">{service.number}</span>
@@ -272,7 +280,7 @@ export default function Home() {
 
         <section className="monitoring-banner" aria-label="Monitoramento MWTA">
           <div className="monitoring-image" aria-hidden="true" />
-          <div className="shell monitoring-content">
+          <div className="shell monitoring-content" data-reveal>
             <p className="eyebrow eyebrow-light">Tecnologia que aproxima</p>
             <h2>Veja, acompanhe e proteja, mesmo à distância.</h2>
             <p>
@@ -287,7 +295,7 @@ export default function Home() {
 
         <section className="section projects" id="projetos">
           <div className="shell">
-            <div className="section-heading split-heading">
+            <div className="section-heading split-heading" data-reveal>
               <div>
                 <p className="eyebrow">Projetos e instalações</p>
                 <h2>Segurança aplicada na prática.</h2>
@@ -297,7 +305,7 @@ export default function Home() {
                 adequada às características de cada local.
               </p>
             </div>
-            <div className="projects-grid">
+            <div className="projects-grid stagger-grid" data-reveal>
               {projects.map((project, index) => (
                 <figure className={`project-card project-${index + 1}`} key={project.src}>
                   <img src={project.src} alt={project.alt} loading="lazy" />
@@ -309,7 +317,7 @@ export default function Home() {
         </section>
 
         <section className="section process-section">
-          <div className="shell process-grid">
+          <div className="shell process-grid" data-reveal>
             <div className="process-intro">
               <p className="eyebrow">Como trabalhamos</p>
               <h2>Da primeira conversa à proteção em funcionamento.</h2>
@@ -329,12 +337,12 @@ export default function Home() {
 
         <section className="section clients" id="clientes">
           <div className="shell">
-            <div className="section-heading centered-heading">
+            <div className="section-heading centered-heading" data-reveal>
               <p className="eyebrow">Confiança construída</p>
               <h2>Empresas que já contam com a MWTA.</h2>
               <p>Relacionamentos duradouros são parte da nossa história.</p>
             </div>
-            <div className="logos-grid">
+            <div className="logos-grid stagger-grid" data-reveal>
               {clients.map(([file, name]) => (
                 <div className="logo-card" key={file}>
                   <img src={`/images/clientes/${file}`} alt={`Logo ${name}`} loading="lazy" />
@@ -346,7 +354,7 @@ export default function Home() {
 
         <section className="section testimonials" aria-labelledby="testimonials-title">
           <div className="shell">
-            <div className="section-heading split-heading">
+            <div className="section-heading split-heading" data-reveal>
               <div>
                 <p className="eyebrow">Quem escolhe, recomenda</p>
                 <h2 id="testimonials-title">Atendimento que gera tranquilidade.</h2>
@@ -356,7 +364,7 @@ export default function Home() {
                 <p>Avaliações de clientes</p>
               </div>
             </div>
-            <div className="testimonials-grid">
+            <div className="testimonials-grid stagger-grid" data-reveal>
               {testimonials.map((testimonial) => (
                 <figure className="quote-card" key={testimonial.name}>
                   <blockquote>“{testimonial.quote}”</blockquote>
@@ -368,7 +376,7 @@ export default function Home() {
         </section>
 
         <section className="section faq-section" id="duvidas">
-          <div className="shell faq-grid">
+          <div className="shell faq-grid" data-reveal>
             <div className="faq-intro">
               <p className="eyebrow">Perguntas frequentes</p>
               <h2>Informação também traz segurança.</h2>
@@ -389,7 +397,7 @@ export default function Home() {
         </section>
 
         <section className="contact-section" id="contato">
-          <div className="shell contact-grid">
+          <div className="shell contact-grid" data-reveal>
             <div className="contact-copy">
               <p className="eyebrow eyebrow-light">Fale com a MWTA</p>
               <h2>Vamos proteger o que é importante para você?</h2>
@@ -437,8 +445,12 @@ export default function Home() {
       </footer>
 
       <a className="floating-whatsapp" href={whatsappUrl} target="_blank" rel="noreferrer" aria-label="Falar com a MWTA pelo WhatsApp">
-        <span aria-hidden="true">WA</span>
-        <strong>Falar agora</strong>
+        <img
+          className="whatsapp-icon"
+          src="https://cdn.jsdelivr.net/npm/simple-icons@v16/icons/whatsapp.svg"
+          alt=""
+          aria-hidden="true"
+        />
       </a>
     </>
   );

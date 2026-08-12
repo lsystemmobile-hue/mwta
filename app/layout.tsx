@@ -19,9 +19,9 @@ export const metadata: Metadata = {
       "Soluções completas de segurança para residências e empresas em Laranjal Paulista.",
     images: [
       {
-        url: "/og.png",
-        width: 1760,
-        height: 920,
+        url: "/og-gold.png",
+        width: 1774,
+        height: 887,
         alt: "Central de monitoramento e segurança da MWTA",
       },
     ],
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "MWTA | Segurança e tranquilidade",
     description: "Soluções completas de segurança em Laranjal Paulista.",
-    images: ["/og.png"],
+    images: ["/og-gold.png"],
   },
   icons: {
     icon: "/favicon.svg",
