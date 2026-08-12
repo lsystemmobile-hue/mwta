@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
+const siteUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL
+  ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+  : "https://mwta.com.br";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://mwta.com.br"),
+  metadataBase: new URL(siteUrl),
   title: "MWTA Segurança em Laranjal Paulista | Monitoramento e Alarmes",
   description:
     "Há 14 anos, a MWTA oferece portaria, alarmes monitorados, câmeras, cerca elétrica, concertina, ronda e rastreamento em Laranjal Paulista.",
