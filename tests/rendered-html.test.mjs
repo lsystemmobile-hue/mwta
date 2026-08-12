@@ -12,7 +12,10 @@ test("keeps the Vercel production configuration and assets in sync", async () =>
     access(new URL("../public/og-gold.png", import.meta.url)),
   ]);
 
-  assert.equal(JSON.parse(vercelConfig).framework, "nextjs");
+  const parsedVercelConfig = JSON.parse(vercelConfig);
+  assert.equal(parsedVercelConfig.framework, "nextjs");
+  assert.equal(parsedVercelConfig.buildCommand, "npm run build");
+  assert.equal(parsedVercelConfig.outputDirectory, null);
   assert.equal(JSON.parse(packageJson).scripts.build, "next build");
   assert.match(page, /src="\/media\/video_hero\.mp4"/);
   assert.match(page, /<RevealObserver \/>/);
